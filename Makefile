@@ -28,7 +28,7 @@ ifeq ($(UNAME_S),Linux)
 else ifeq ($(UNAME_S),Darwin)
   NASM_FORMAT := macho64
 else
-  $(warning Unsupported OS '$(UNAME_S)'. This Makefile is intended for Linux/macOS (SysV ABI).)
+  $(warning Неподдерживаемая ось '$(UNAME_S)')
   NASM_FORMAT := elf64
 endif
 
@@ -91,6 +91,5 @@ help:
 	@echo "  BUILD=debug|release"
 	@echo "  RUN_ARGS=\"4 5 -100 100\""
 	@echo "  compile_flags=\"-fsanitize=address -fno-omit-frame-pointer\""
-	@echo "Notes: var18.asm использует SysV ABI (Linux/macOS). На Windows используйте WSL/MSYS2."
 
 -include $(DEPS)
